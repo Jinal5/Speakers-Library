@@ -1,0 +1,98 @@
+{% extends 'speakersd/base.html' %}
+{% load static %}
+{% block content %}
+
+        <br><br><br>
+        <div class="container">
+        <div class="row">
+        <div class="col-lg-8 col-12 mx-auto">
+            <form enctype="multipart/form-data" class="custom-form contact-form bg-white shadow-lg" id="addspeaker" action="" method="post">
+                {% csrf_token%}
+              <h2>Add Speaker Details:</h2>
+              <fieldset style="margin-left: 40px;">
+              <h5>Please provide the following details:</h5>
+              </fieldset>
+
+                <label for="name" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" >Name of Speaker</label>
+                <fieldset style="color: black; display: inline-block;">
+                    {{ form.name_of_speaker }}
+                </fieldset>
+                <br>
+
+                <label for="Address" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">Address of Speaker (City, Country)</label>
+                <fieldset style="color: black; display: inline-block;">
+                    {{ form.address_citycountry }}
+                </fieldset>
+                <br>
+
+                <label for="phone_number" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">Phone No. </label>
+                <fieldset style="color: black; display: inline-block;">
+                    {{ form.phone_number }}
+                </fieldset>
+                <br>
+
+                <label for="EmailID" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">e-mail</label>
+                <fieldset style="color: black; display: inline-block;">
+                    {{ form.email_id }}
+                </fieldset>
+                <br>
+
+                <label for="profession" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">Profession</label>
+                <fieldset style="color: black; display: inline-block;">
+                    {{ form.profession }}
+                </fieldset>
+                <br>
+
+                <label for="awards" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">Award(s)</label>
+                <fieldset style="color: black; margin-left: 50px;">
+                    {{ form.awards }}
+                </fieldset>
+                <br>
+
+                <label for="description" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">Description</label>
+                <fieldset style="color: black; margin-left: 50px;">
+                    {{ form.desc }}
+                </fieldset>
+                <br>
+
+                <label for="books" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">Books (if any)</label>
+                <fieldset style="color: black; margin-left: 50px;">
+                    {{ form.books }}
+                </fieldset>
+                <br>
+            <!--
+                <label for="AM" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">Availability of Speaker: </label>
+                <fieldset style="color: black; margin-left: 50px;">
+                    {{ form.available_months }}
+                </fieldset>
+                <br>
+            -->
+                <label for="events" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 15px;">Upcoming Events </label>
+                <fieldset style="color: black; display: inline-block;">
+                    {{ form.upcoming_events }}
+                </fieldset>
+                <br>
+        
+                <label for="photo" style="display:inline-block; margin-left:50px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;">Speaker Image: </label>
+                <fieldset style="display: inline-block;">
+                {{ form.pic }}
+                </fieldset>
+                <br>
+            
+                <fieldset style="display: inline-block; margin-left: 45%; margin-bottom: 30px; margin-top: 20px;">
+                    <button name="submit" type="submit" id="submit" value="submit" style="padding: 10px;">Submit</button>
+                </fieldset>
+            
+            </form>
+        </div>
+        </div>
+        </div>
+
+        <div>
+        {% if img_obj %}  
+        <h3>Succesfully uploaded</h3>  
+        <!--<img src="{{ img_obj.pic.url}}" alt="connect" style="max-height:300px">-->
+        {% endif %}  
+        </div>
+
+{% endblock content %}
